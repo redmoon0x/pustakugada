@@ -53,13 +53,13 @@ def search_book(update: Update, context: CallbackContext):
                 options = "\n".join([str(index + 1) + ". " + title for index, (title, _) in enumerate(book_list)])
 
                 update.message.reply_text(
-                    f"Here are the search results:\n{options}\nPlease enter the number of the book you want to download."
+                    "Here are the search results:\n" + options + "\nPlease enter the number of the book you want to download."
                 )
                 return SELECT_BOOK
 
         update.message.reply_text("No books found. Please try a different search term.")
     except requests.exceptions.RequestException as e:
-        logging.error(f"Error occurred during book search: {str(e)}")
+        logging.error("Error occurred during book search: " + str(e))
         update.message.reply_text("Failed to search for books. Please try again later.")
 
     return ConversationHandler.END
@@ -89,7 +89,7 @@ def select_book(update: Update, context: CallbackContext) -> ConversationHandler
                 if len(pdf_files) > 0:
                     # Get the first PDF file in the item
                     file = pdf_files[0]
-                    file_url = f"https://archive.org/download/{book_identifier}/{file['name']}"
+                    file_url = "https://archive.org/download/" + book_identifier + "/" + file["name"]
 
                     # Send chat action to indicate file upload
                     update.message.chat.send_action(action=ChatAction.UPLOAD_DOCUMENT)
@@ -110,7 +110,7 @@ def select_book(update: Update, context: CallbackContext) -> ConversationHandler
                     update.message.reply_text("No PDF files found for the selected book.\n\nDo you want to search again?")
                     return CONTINUE_SEARCH
             except Exception as e:
-                logging.error(f"Error occurred during book retrieval: {str(e)}")
+                logging.error("Error occurred during book retrieval: " + str(e))
                 update.message.reply_text("Failed to retrieve the book. Please try again later.")
         else:
             update.message.reply_text("Invalid book number. Please try again.")
@@ -128,7 +128,6 @@ def continue_search(update: Update, context: CallbackContext):
     else:
         update.message.reply_text("Search ended. Thank you!")
         return ConversationHandler.END
-
 
 
 def cancel(update: Update, context: CallbackContext):
