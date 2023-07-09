@@ -50,7 +50,7 @@ def search_book(update: Update, context: CallbackContext):
                 context.user_data["book_list"] = book_list
 
                 # Create a formatted string with the book options
-               options = "\n".join([str(index + 1) + ". " + title for index, (title, _) in enumerate(book_list)])
+                options = "\n".join([str(index + 1) + ". " + title for index, (title, _) in enumerate(book_list)])
 
                 update.message.reply_text(
                     f"Here are the search results:\n{options}\nPlease enter the number of the book you want to download."
