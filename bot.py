@@ -36,7 +36,7 @@ def search_book(update: Update, context: CallbackContext):
     query = update.message.text
 
     try:
-        response = requests.get(f"https://archive.org/advancedsearch.php?q={query}&output=json")
+        response = requests.get("https://archive.org/advancedsearch.php?q=" + query + "&output=json")
         response.raise_for_status()
         data = response.json()
 
