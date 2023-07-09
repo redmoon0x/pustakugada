@@ -1,3 +1,4 @@
-internetarchive==3.5.0
+requests
+logging
+internetarchive
 python-telegram-bot
-
