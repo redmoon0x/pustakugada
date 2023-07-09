@@ -1,4 +1,4 @@
 requests
 logging
 internetarchive
-python-telegram==0.18.0
+python-telegram==13.0
