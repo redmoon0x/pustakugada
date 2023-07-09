@@ -3,11 +3,11 @@ name: Bot Deployment
 on:
   push:
     branches:
-      - main  # Change this to the branch name you want to trigger the deployment on
+      - main
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -16,12 +16,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.10  # Change this to the Python version you want to use
+          python-version: 3.10
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Change this to the path of your requirements file
+          pip install internetarchive==1.9.7
+          pip install requests
+          pip install python-telegram-bot
 
       - name: Run the bot
-        run: python bot.py  # Change this to the filename of your bot script
+        run: python bot.py
