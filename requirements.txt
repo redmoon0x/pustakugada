@@ -1,2 +1,4 @@
-internetarchive
+internetarchive==1.9.7
 python-telegram-bot
+requests==2.26.0
+
