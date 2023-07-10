@@ -22,15 +22,14 @@ jobs:
           mkdir book_search_bot
       - name: Deploy the code
         run: |
-          cd book_search_bot
+          cd pustakugada
           git init
           env:
-            GIT_AUTHOR_NAME: "redmoon0x"
-            GIT_COMMITTER_NAME: "redmoon0x"
+            PATH: /usr/local/bin:$PATH
           git add .
           git commit -m "Deploying to production"
           # Replace with the path to your virtual environment
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-          python book_search_bot.py
+          python bot.py
