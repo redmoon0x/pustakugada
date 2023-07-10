@@ -1,1 +1,31 @@
 
+name: Book Search Bot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run the bot
+        run: python book_search_bot.py
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the code
+        run: |
+          cd book_search_bot
+          git init
+          git add .
+          git commit -m "Deploying to production"
+          # Replace with the path to your virtual environment
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          python book_search_bot.py
