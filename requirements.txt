@@ -1,5 +1,4 @@
-python-telegram-bot==13.7.1
-internetarchive==1.4.3
-requests==2.26.0
-
-
+python-telegram-bot
+requests
+internetarchive
+logging
