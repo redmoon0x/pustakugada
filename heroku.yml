@@ -1,0 +1,7 @@
+build:
+  command: pip install -r requirements.txt
+  user: python
+
+web:
+  buildpack: heroku/python
+  command: python bot.py
