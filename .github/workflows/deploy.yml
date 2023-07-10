@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r .github/workflows/requirements.txt
       - name: Run the bot
         run: python bot.py
 
@@ -31,5 +31,5 @@ jobs:
           # Replace with the path to your virtual environment
           python -m venv venv
           source venv/bin/activate
-          pip install -r requirements.txt
+          pip install -r .github/workflows/requirements.txt
           python bot.py
