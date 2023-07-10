@@ -1,4 +1,3 @@
-
 name: Book Search Bot
 
 on:
@@ -18,6 +17,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Create the directory
+        run: |
+          mkdir book_search_bot
       - name: Deploy the code
         run: |
           cd book_search_bot
