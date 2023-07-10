@@ -9,7 +9,7 @@ from telegram.ext import (
     CommandHandler,
     ConversationHandler,
     MessageHandler,
-    filters,
+    Filters,
     CallbackQueryHandler, CallbackContext,
 )
 
@@ -128,7 +128,7 @@ def main():
         entry_points=[CommandHandler("start", start)],
         states={
             SEARCH_BOOK: [
-                MessageHandler(filters.text & ~filters.command, search_book),
+                MessageHandler(Filters.text & ~Filters.command, search_book),
                 CallbackQueryHandler(select_book),
             ],
         },
