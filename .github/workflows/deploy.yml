@@ -24,6 +24,9 @@ jobs:
         run: |
           cd book_search_bot
           git init
+          env:
+            GIT_AUTHOR_NAME: "redmoon0x"
+            GIT_COMMITTER_NAME: "redmoon0x"
           git add .
           git commit -m "Deploying to production"
           # Replace with the path to your virtual environment
