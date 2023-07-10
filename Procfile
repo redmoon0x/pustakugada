@@ -1,2 +1,2 @@
 
-web: pip install telegram && python bot.py
+web: pip install --upgrade telegram && python bot.py
