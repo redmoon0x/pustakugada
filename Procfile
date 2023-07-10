@@ -1,1 +1,2 @@
-web: python bot.py
+
+web: pip install telegram && python bot.py
